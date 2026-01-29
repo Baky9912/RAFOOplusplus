@@ -1,0 +1,27 @@
+INTERFACE ILeft
+methods = {
+  ping -> [100]
+}
+
+INTERFACE IRight
+methods = {
+  ping -> [200]
+}
+
+CLASS A
+base = None
+interfaces = [ILeft, IRight]
+fields = []
+methods = {
+  ping -> [42]
+}
+
+let x  = new A()
+let xl = cast<ILeft> x
+let xr = cast<IRight> x
+
+call  xl.ping
+call  xr.ping
+
+vcall xl.ping
+vcall xr.ping

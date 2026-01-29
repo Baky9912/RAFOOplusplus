@@ -1,0 +1,54 @@
+; Sample program that exercises:
+; - deep inheritance
+; - interfaces + cast
+; - static call vs virtual call
+; - free + gc
+; - reflection
+
+INTERFACE I0
+methods = {
+  show -> []
+}
+
+CLASS C0
+base = None
+interfaces = [I0]
+fields = [f0]
+methods = {
+  show -> [f0]
+}
+
+CLASS C1
+base = C0
+interfaces = []
+fields = [f1]
+methods = { }
+
+CLASS C2
+base = C1
+interfaces = []
+fields = [f2]
+methods = {
+  show -> [f0, f2]
+}
+
+let x  = new C2(10, 20, 30)
+let xb = cast<C0> x
+let xi = cast<I0> x
+
+; static dispatch (view-based): uses xb's view type (C0)
+call xb.show
+
+; dynamic dispatch (runtime-based): uses runtime type (C2)
+vcall xb.show
+vcall xi.show
+
+typeof xb
+fieldsof xb
+methodsof xb
+interfacesof xb
+
+; create garbage and drop the reference
+let t = clone x
+free t
+gc

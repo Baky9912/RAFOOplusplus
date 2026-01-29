@@ -1,0 +1,26 @@
+CLASS B
+    base = None
+    fields = [a, b]
+    methods = {
+        show -> [a, b]
+    }
+
+CLASS A
+    base = B
+    fields = [x, y]
+    methods = {
+        show -> [a, b, x, y]
+    }
+
+let a = new A(10, 20, 30, 40)
+
+call a.show
+
+let b = cast<B> a
+
+call b.show
+
+b.b = 999
+
+call a.show
+call b.show

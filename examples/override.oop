@@ -1,0 +1,21 @@
+CLASS Base
+    base = None
+    fields = [v]
+    methods = {
+        info -> [v]
+    }
+
+CLASS Child
+    base = Base
+    fields = [w]
+    methods = {
+        info -> [v, w]
+    }
+
+let x = new Child(7, 8)
+
+call x.info
+
+let y = cast<Base> x
+
+call y.info

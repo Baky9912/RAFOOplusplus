@@ -1,0 +1,18 @@
+INTERFACE IShow
+methods = {
+  show -> [999]
+}
+
+CLASS A
+base = None
+interfaces = [IShow]
+fields = [a]
+methods = {
+  show -> [1, a]
+}
+
+let x  = new A(7)
+let xi = cast<IShow> x
+
+call  xi.show
+vcall xi.show

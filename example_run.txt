@@ -1,0 +1,3 @@
+python bench_metrics.py --mode runtime --case chain --n-classes 1000 --calls 300000 --out metrics_chain1000
+python bench_metrics.py --mode runtime --case many_methods --n-classes 400 --calls 200000 --methods-per-class 10 --out metrics_many400
+python -m main .\examples\iface_cast.oop

@@ -1,0 +1,28 @@
+CLASS B
+    base = None
+    fields = [a, b]
+    methods = {
+        showB -> [a, b]
+    }
+
+CLASS A
+    base = B
+    fields = [x, y]
+    methods = {
+        showAll -> [a, b, x, y]
+        show    -> [a, x]
+    }
+
+let a = new A(1, 2, 3, 4)
+let b = a
+let c = clone a
+
+a.a = 5
+
+call a.showAll
+call b.show
+call c.showAll
+
+a is A
+a is B
+a is C
